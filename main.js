@@ -29,10 +29,13 @@ var checkForWinner = function () {
     || spaces[3] === spaces[4] && spaces[4] === spaces[5]
     || spaces[6] === spaces[7] && spaces[7] === spaces[8]
     // TODO: Check for rest of game winning cases
+    // TODO: vertical wins
+    // TODO: diagonal wins
   )
   {
     console.log('somebody won');
     // TODO: Trigger 'game-win' event with the winning player as the event data
+    $(document).trigger('game-win', currentPlayer);
   }
 };
 
@@ -52,7 +55,7 @@ $(document).on('click', '#board .space', function (e) {
 
 $(document).on('game-win', function (e, winner) {
   // TODO: Alert who won the game
-  alert(winner+"won!");
+  alert(winner+" won!");
 });
 
 // Start the game
